@@ -2,6 +2,7 @@ public class Bedroom extends Room {
 
     private int roomNumber;
     private RoomType roomType;
+    private double nightlyRate;
 
     public Bedroom(int _capacity, int _roomNumber, RoomType _roomType, double nightlyRate) {
         super(_capacity);
@@ -18,5 +19,7 @@ public class Bedroom extends Room {
         return roomType;
     }
 
-
+    public double getNightlyRate() {
+        return nightlyRate;
+    }
 }
