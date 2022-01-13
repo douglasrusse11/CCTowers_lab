@@ -22,7 +22,9 @@ public class Hotel {
     }
 
     public void checkIn(ArrayList<Guest> _guests, Bedroom _room) {
-        _room.addGuests(_guests);
+        if (_room.getGuestCount() == 0) {
+            _room.addGuests(_guests);
+        }
     }
 
     public void checkOut(Bedroom _room) {

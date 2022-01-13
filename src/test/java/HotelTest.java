@@ -54,6 +54,14 @@ public class HotelTest {
     }
 
     @Test
+    public void cannotCheckInGuestsIfRoomIsOccupied() {
+        assertEquals(0, hotel.getBedrooms().get(0).getGuestCount());
+        hotel.checkIn(guests, hotel.getBedrooms().get(0));
+        hotel.checkIn(guests, hotel.getBedrooms().get(0));
+        assertEquals(2, hotel.getBedrooms().get(0).getGuestCount());
+    }
+
+    @Test
     public void canCheckGuestsOut() {
         hotel.checkIn(guests, hotel.getBedrooms().get(0));
         assertEquals(2, hotel.getBedrooms().get(0).getGuestCount());
@@ -69,5 +77,29 @@ public class HotelTest {
     @Test
     public void hasDiningRooms() {
         assertEquals(diningroom1, hotel.getDiningRoom("Eatery"));
+    }
+
+    @Test
+    public void canGetVacantBedrooms(){
+        ArrayList<Bedroom> vacantBedrooms = hotel.getVacantBedrooms();
+        assertEquals(0, vacantBedrooms.get(0).getGuestCount());
+        assertEquals(0, vacantBedrooms.get(1).getGuestCount());
+    }
+
+    @Test
+    public void canGetVacantBedroomsIfOneIsOccupied() {
+        hotel.checkIn(guests, hotel.getBedrooms().get(0));
+        assertEquals(1, hotel.getVacantBedrooms().size());
+    }
+
+    @Test
+    public void canBuildExtension () {
+        assertEquals(2, hotel.getBedrooms().size());
+        assertEquals(2, hotel.getConferenceRooms().size());
+        assertEquals(2, hotel.getDiningRooms().size());
+        hotel.buildExtension(extensionBedrooms, extensionConferenceRooms, extensionDiningRooms);
+        assertEquals(4, hotel.getBedrooms().size());
+        assertEquals(4, hotel.getConferenceRooms().size());
+        assertEquals(4, hotel.getDiningRooms().size());
     }
 }
