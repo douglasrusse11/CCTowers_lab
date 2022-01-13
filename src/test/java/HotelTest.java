@@ -15,6 +15,9 @@ public class HotelTest {
     private HashMap<String, DiningRoom> diningRooms;
     private DiningRoom diningroom1;
     private DiningRoom diningroom2;
+    private ArrayList<Bedroom> extensionBedrooms;
+    private ArrayList<ConferenceRoom> extensionConferenceRooms;
+    private ArrayList<DiningRoom> extensionDiningRooms;
 
     @Before
     public void before() {
@@ -33,6 +36,16 @@ public class HotelTest {
         diningRooms.put(diningroom1.getName(), diningroom1);
         diningRooms.put(diningroom2.getName(), diningroom2);
         hotel = new Hotel(bedrooms, conferenceRooms, diningRooms);
+
+        extensionBedrooms = new ArrayList<>();
+        extensionBedrooms.add(new Bedroom(1, 3, RoomType.SINGLE, 150));
+        extensionBedrooms.add(new Bedroom(2, 4, RoomType.DOUBLE, 250));
+        extensionConferenceRooms = new ArrayList<>();
+        extensionConferenceRooms.add(new ConferenceRoom(30, "Conference Room 3"));
+        extensionConferenceRooms.add(new ConferenceRoom(40, "Conference Room 4"));
+        extensionDiningRooms = new ArrayList<>();
+        extensionDiningRooms.add(new DiningRoom(60, "Carvery"));
+        extensionDiningRooms.add(new DiningRoom(30, "Salad bar"));
     }
 
 
