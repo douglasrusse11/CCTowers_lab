@@ -18,8 +18,8 @@ public class HotelTest {
         guests.add(new Guest("Bob"));
         guests.add(new Guest("Michael"));
         bedrooms = new ArrayList<>();
-        bedrooms.add(new Bedroom(1, 1, RoomType.SINGLE));
-        bedrooms.add(new Bedroom(2, 2, RoomType.DOUBLE));
+        bedrooms.add(new Bedroom(1, 1, RoomType.SINGLE, 150));
+        bedrooms.add(new Bedroom(2, 2, RoomType.DOUBLE, 250));
         conferenceRooms = new ArrayList<>();
         conferenceRooms.add(new ConferenceRoom(30, "Conference Room 1"));
         conferenceRooms.add(new ConferenceRoom(40, "Conference Room 2"));
